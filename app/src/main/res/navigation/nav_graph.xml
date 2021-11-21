@@ -15,4 +15,9 @@
         android:name="ir.abbas.cryptocurrency.marketFragment.MarketFragment"
         android:label="fragment_market"
         tools:layout="@layout/fragment_market" />
+    <fragment
+        android:id="@+id/watchListFragment"
+        android:name="ir.abbas.cryptocurrency.whatchListFragment.WatchListFragment"
+        android:label="fragment_watch_list"
+        tools:layout="@layout/fragment_watch_list" />
 </navigation>

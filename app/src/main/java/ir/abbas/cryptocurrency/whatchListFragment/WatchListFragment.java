@@ -1,4 +1,4 @@
-package ir.abbas.cryptocurrency.marketFragment;
+package ir.abbas.cryptocurrency.whatchListFragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -19,10 +19,10 @@ import android.view.ViewGroup;
 
 import ir.abbas.cryptocurrency.MainActivity;
 import ir.abbas.cryptocurrency.R;
-import ir.abbas.cryptocurrency.databinding.FragmentMarketBinding;
+import ir.abbas.cryptocurrency.databinding.FragmentWatchListBinding;
 
-public class MarketFragment extends Fragment {
-    FragmentMarketBinding fragmentMarketBinding;
+public class WatchListFragment extends Fragment {
+    FragmentWatchListBinding fragmentWatchListBinding;
     MainActivity mainActivity;
     NavController navController;
     AppBarConfiguration appBarConfiguration;
@@ -42,22 +42,22 @@ public class MarketFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        fragmentMarketBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_market,container,false);
-        return fragmentMarketBinding.getRoot();
+        fragmentWatchListBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_watch_list,container,false);
+        return fragmentWatchListBinding.getRoot();
     }
 
     private void setUpToolbar(View view){
         Toolbar toolbar = view.findViewById(R.id.toolbar);
         navController = Navigation.findNavController(view);
-        appBarConfiguration = new AppBarConfiguration.Builder(R.id.marketFragment)
+        appBarConfiguration = new AppBarConfiguration.Builder(R.id.watchListFragment)
                 .setOpenableLayout(mainActivity.drawerLayout)
                 .build();
         NavigationUI.setupWithNavController(toolbar,navController,appBarConfiguration);
 
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
-            if (destination.getId() == R.id.marketFragment){
+            if (destination.getId() == R.id.watchListFragment){
                 toolbar.setNavigationIcon(R.drawable.ic_baseline_sort_24);
-                toolbar.setTitle("Market");
+                toolbar.setTitle("Watchlist");
             }
         });
     }
